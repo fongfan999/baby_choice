@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby "2.3.1"
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -39,8 +40,10 @@ gem 'spina-template', github: 'denkGroot/Spina-template'
 gem 'spina', github: 'denkGroot/Spina'
 gem 'spina-articles', github: 'DigitalReflow/spina-articles'
 
-# Bootstrap MD
-gem 'rails-assets-bootstrap-material-design', source: 'https://rails-assets.org'
+source 'https://rails-assets.org' do
+  # Bootstrap MD
+  gem 'rails-assets-bootstrap-material-design'
+end
 
 # Upload files to S3
 gem 'fog', '~> 1.38'
