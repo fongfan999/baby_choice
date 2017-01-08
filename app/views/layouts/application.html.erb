@@ -9,7 +9,18 @@
   </head>
 
   <body>
-    <div id="hihi"></div>
-    <%= yield %>
+    <nav class="jumbotron well">
+      <h1>Header</h1>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9"><%= yield %></div>
+
+        <div class="col-md-3 well">
+          <h1>New things will be come here.</h1>
+        </div>
+      </div>
+    </div>
+    
   </body>
 </html>

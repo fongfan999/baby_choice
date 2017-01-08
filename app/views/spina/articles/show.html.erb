@@ -1,0 +1,18 @@
+<div id="article" class="well">
+  <div class="page-header">
+    <h2><%= @article.title %></h2>
+
+    <span>
+      <small>
+        <i>
+        <% if @article.author %>
+          Được đăng bởi <%= @article.author %> vào lúc 
+        <% end %>
+        <%= @article.created_at.strftime("%d-%m-%Y") %>
+        </i>
+      </small>
+    </span>
+  </div>
+
+  <%= @article.body.try(:html_safe) %>
+</div>
