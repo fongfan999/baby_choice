@@ -1,6 +1,6 @@
 module Spina
   class ArticlesController < ApplicationController
-    layout 'layouts/default/application'
+    layout 'layouts/application'
 
     def index
       @articles = Spina::Article.order(created_at: :desc).all

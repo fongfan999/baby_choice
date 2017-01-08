@@ -42,6 +42,9 @@ gem 'spina-template', github: 'denkGroot/Spina-template'
 gem 'spina', github: 'denkGroot/Spina'
 gem 'spina-articles', github: 'DigitalReflow/spina-articles'
 
+# gem 'bootstrap-sass', '~> 3.3'
+gem 'rails-assets-bootstrap-material-design', source: 'https://rails-assets.org'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
