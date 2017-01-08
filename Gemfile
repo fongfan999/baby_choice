@@ -40,6 +40,7 @@ gem 'breadcrumbs_on_rails', github: 'seuros/breadcrumbs_on_rails', branch: 'patc
 gem 'globalize', github: 'globalize/globalize'
 gem 'spina-template', github: 'denkGroot/Spina-template'
 gem 'spina', github: 'denkGroot/Spina'
+gem 'spina-articles', github: 'DigitalReflow/spina-articles'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

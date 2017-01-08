@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170108010313) do
+ActiveRecord::Schema.define(version: 20170108022706) do
 
   create_table "spina_accounts", force: :cascade do |t|
     t.string   "name"
@@ -26,6 +26,19 @@ ActiveRecord::Schema.define(version: 20170108010313) do
     t.string   "kvk_identifier"
     t.string   "vat_identifier"
     t.boolean  "robots_allowed", default: false
+  end
+
+  create_table "spina_articles", force: :cascade do |t|
+    t.string   "title"
+    t.string   "slug"
+    t.text     "body"
+    t.text     "teaser"
+    t.date     "publish_date"
+    t.string   "author"
+    t.integer  "draft",        default: 1
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "photo_id"
   end
 
   create_table "spina_attachment_collections", force: :cascade do |t|

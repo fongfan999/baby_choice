@@ -1,4 +1,11 @@
 GIT
+  remote: https://github.com/DigitalReflow/spina-articles.git
+  revision: d068580a89ab4ed7529a670d77016855e3589849
+  specs:
+    spina-articles (0.0.2)
+      rails (>= 5.0)
+
+GIT
   remote: https://github.com/denkGroot/Spina-template.git
   revision: 1cd4c68fbe1b89f8190aeb76a6f268151734223d
   specs:
@@ -261,6 +268,7 @@ DEPENDENCIES
   rails (~> 5.0.1)
   sass-rails (~> 5.0)
   spina!
+  spina-articles!
   spina-template!
   spring
   spring-watcher-listen (~> 2.0.0)
