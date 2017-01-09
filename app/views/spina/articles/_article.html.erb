@@ -5,27 +5,25 @@
     </div>
 
     <div class="timeline-label well">
-      <%= link_to article_path(article.slug),
-          target: "_blank" do %>
-      <h2>
-        <%= article.title %>
-        <br/>
-        <span>
-          <small>
-            <i>
-            <% if article.author %>
-              Được đăng bởi <%= article.author %> vào lúc 
-            <% end %>
-            <%= article.created_at.strftime("%d-%m-%Y") %>
-            </i>
-          </small>
-        </span>
-      </h2>
+      <%= link_to article.materialized_path, target: "_blank" do %>
+        <h2>
+          <%= article.title %>
+          <br/>
+          <span>
+            <small>
+              <i>
+              <% if article.author %>
+                Được đăng bởi <%= article.author %> vào lúc 
+              <% end %>
+              <%= article.created_at.strftime("%d-%m-%Y") %>
+              </i>
+            </small>
+          </span>
+        </h2>
 
-      <p class="teaser">
-
-        <%= article.teaser %>
-      </p>
+        <p class="teaser">
+          <%= article.teaser %>
+        </p>
       <% end %>
     </div>
   </div>
