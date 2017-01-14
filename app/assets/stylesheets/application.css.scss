@@ -2,6 +2,10 @@
 @import "materialize";
 @import "articles";
 
+.turbolinks-progress-bar {
+  background-color: $primary-color;
+}
+
 body {
   background-color: #f1f1f1;
 }
