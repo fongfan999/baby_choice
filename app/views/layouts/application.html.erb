@@ -6,24 +6,76 @@
     </title>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <nav class="jumbotron well">
-      <h1>Header</h1>
-    </nav>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-9"><%= yield %></div>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="navbar-brand">Logo</a>
 
-        <div class="col-md-3 well">
-          <h1>New things will be come here soon.</h1>
+        <form id="search-nav" class="right hide-on-small-only">
+          <div class="input-field">
+            <input id="search" type="search" placeholder="Search">
+            <label for="search"><i class="material-icons">search</i></label>
+            <i class="material-icons">close</i>
+          </div>
+        </form>
+        
+        <ul class="right hide-on-med-and-up">
+          <%= link_to root_path do %>
+            <i class="material-icons">search</i>
+          <% end %>
+        </ul>
         </div>
       </div>
+    </nav>
+
+    <div class="">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <h1 class="center-align">Banner ...</h1>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
     </div>
+
+    <nav id="category-nav">
+      <div class="nav-wrapper">
+        <ul id="nav-mobile" class="hide-on-small-only">
+          <li><%= link_to "Home", root_path %></li>
+          <li><a href="#">Category 1</a></li>
+          <li><a href="#">Category 2</a></li>
+          <li><a href="#">Category 3</a></li>
+          <li><a href="#">Category 4</a></li>
+          <li><a href="#">Category 5</a></li>
+        </ul>
+      </div>
+    </nav>
+    
+    <% flash.each do |key, message| %>
+      <%= javascript_tag do %>
+        Materialize
+          .toast('<%= message.html_safe %>', 4000, '<%= "toast-#{key}" %>');
+      <% end %>
+    <% end %>
+    
+    <main class="row">
+      <div class="col s12 m12 l9"><%= yield %></div>
+
+      <div class="col s12 m12S l3 card">
+        <h1>New things will be come here soon.</h1>
+      </div>
+    </main>
     
   </body>
 </html>

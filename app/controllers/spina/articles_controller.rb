@@ -7,9 +7,17 @@ module Spina
     end
 
     def show
-      @article ||= Spina::Article.find_by(slug: params[:id])
-      @prev_article = @article.prev_article
-      @next_article = @article.next_article
+      @article ||= Spina::Article.live.find_by(slug: params[:id])
+
+      if @article
+        @prev_article = @article.prev_article
+        @next_article = @article.next_article
+      else
+        redirect_to root_path
+        flash[:alert] = "Bài viết không tồn tại hoặc đã bị gỡ bỏ"
+      end
+
+      
     end
   end
 end

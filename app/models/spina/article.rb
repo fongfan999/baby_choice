@@ -18,12 +18,16 @@ module Spina
       "/articles/#{slug}"
     end
 
+    def is_live?
+      draft == 0
+    end
+
     def next_article
-      self.class.where("id > ?", id).order("id ASC").first
+      self.class.where("id > ? AND draft = 0", id).order("id ASC").first
     end
 
     def prev_article
-      self.class.where("id < ?", id).order("id DESC").first
+      self.class.where("id < ? AND draft = 0", id).order("id DESC").first
     end
 
     private

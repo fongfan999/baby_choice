@@ -1,6 +1,6 @@
-<div id="article" class="panel">
-  <div class="panel-heading article-header">
-    <h2><%= @article.title %></h2>
+<div id="article" class="card-panel">
+  <div class="article-header">
+    <h4><%= @article.title %></h4>
 
     <span>
       <small>
@@ -14,16 +14,16 @@
     </span>
   </div>
 
-  <div class="panel-body article-body">
+  <div class="article-body">
     <%= @article.body.try(:html_safe) %>
   
     <div class="article-nav">
-      <div class="prev-article pull-left">
+      <div class="prev-article left">
         <% if @prev_article %>
           <%= link_to "Tin trước đó", @prev_article.materialized_path %>
         <% end %>
       </div>
-      <div class="next-article pull-right">
+      <div class="next-article right">
         <% if @next_article %>
           <%= link_to "Tin tiếp theo", @next_article.materialized_path %>
         <% end %>

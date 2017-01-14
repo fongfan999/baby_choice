@@ -41,8 +41,8 @@ gem 'spina', github: 'denkGroot/Spina'
 gem 'spina-articles', github: 'DigitalReflow/spina-articles'
 
 source 'https://rails-assets.org' do
-  # Bootstrap MD
-  gem 'rails-assets-bootstrap-material-design'
+  # Materialize
+  gem 'rails-assets-materialize'
 end
 
 # Upload files to S3

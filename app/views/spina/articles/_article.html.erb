@@ -4,7 +4,7 @@
       <i class="entypo-feather"></i>
     </div>
 
-    <div class="timeline-label well">
+    <div class="timeline-label card-panel">
       <%= link_to article.materialized_path, target: "_blank" do %>
         <h2>
           <%= article.title %>
@@ -13,7 +13,7 @@
             <small>
               <i>
               <% if article.author %>
-                Được đăng bởi <%= article.author %> vào lúc 
+                Được đăng bởi <%= article.author %> vào 
               <% end %>
               <%= article.created_at.strftime("%d-%m-%Y") %>
               </i>

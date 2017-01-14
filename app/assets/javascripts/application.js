@@ -12,7 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require materialize
 //= require turbolinks
-//= require bootstrap-material-design
-// require bootstrap-sprockets
 //= require_tree .
+
+$(document).on('turbolinks:load', function() {
+  $('#category-nav').pushpin({
+    top: $('#category-nav').offset().top
+  });
+});
