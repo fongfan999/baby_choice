@@ -4,27 +4,24 @@
       <i class="entypo-feather"></i>
     </div>
 
-    <div class="timeline-label card-panel">
-      <%= link_to article.materialized_path do %>
-        <h2>
-          <%= article.title %>
-          <br/>
-          <span>
-            <small>
-              <i>
-              <% if article.author %>
-                Được đăng bởi <%= article.author %> vào 
-              <% end %>
-              <%= article.created_at.strftime("%d-%m-%Y") %>
-              </i>
-            </small>
-          </span>
-        </h2>
+    <div class="timeline-label card horizontal">   
+      <div class="card-image hide-on-small-only">
+        <% if article.photo %>
+          <%= image_tag article.photo.file_url %>
+        <% end %>
+      </div>
 
-        <p class="teaser">
-          <%= article.teaser %>
-        </p>
-      <% end %>
+      <div class="card-stacked">
+        <div class="card-content">
+          <%= link_to article.materialized_path, class: "black-text" do %>
+          <span class="card-title"><%= article.title %></span>
+          <% end %>
+          <p class="teaser"><%= article.teaser %></p>
+        </div>
+        <div class="card-action">
+          <%= link_to "Xem thêm", article.materialized_path, class: "right" %>
+        </div>
+      </div>
     </div>
   </div>
 </article>

@@ -15,9 +15,9 @@
   <body>
     <nav>
       <div class="nav-wrapper">
-        <a href="#" class="navbar-brand">Logo</a>
+        <%= link_to "Logo", root_path, class: "navbar-brand" %>
 
-        <form id="search-nav" class="right hide-on-small-only">
+        <form id="nav-search" class="right hide-on-small-only">
           <div class="input-field">
             <input id="search" type="search" placeholder="Search">
             <label for="search"><i class="material-icons">search</i></label>
@@ -49,10 +49,12 @@
       <br>
     </div>
 
-    <nav id="category-nav">
+    <nav id="nav-category">
       <div class="nav-wrapper">
         <ul id="nav-mobile" class="hide-on-small-only">
-          <li><%= link_to "Home", root_path %></li>
+          <li>
+            <%= link_to "Home", root_path %>
+          </li>
           <li><a href="#">Category 1</a></li>
           <li><a href="#">Category 2</a></li>
           <li><a href="#">Category 3</a></li>
@@ -73,7 +75,7 @@
       <div class="col s12 m12 l9"><%= yield %></div>
 
       <div class="col s12 m12S l3 card">
-        <h1>New things will be come here soon.</h1>
+        <h3>New things will be come here soon.</h3>
       </div>
     </main>
     

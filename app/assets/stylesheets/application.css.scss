@@ -3,7 +3,7 @@
 @import "articles";
 
 .turbolinks-progress-bar {
-  background-color: $primary-color;
+  background-color: #fff;
 }
 
 body {
@@ -19,12 +19,16 @@ body {
   white-space: nowrap;
 }
 
-#search-nav {
+#nav-search {
   width: 400px;
 }
 
-#category-nav {
+#nav-category {
   z-index: 2;
+
+  &.pinned ~ main {
+    padding-top: 64px;
+  }
 }
 
 main {

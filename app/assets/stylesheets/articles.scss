@@ -3,35 +3,6 @@
     vertical-align: middle;
   }
 
-  .responsive-img {
-    display: block;
-    height: auto;
-    max-width: 100%;
-  }
-
-  .img-rounded {
-    border-radius: 3px;
-  }
-
-  .img-thumbnail {
-    background-color: #fff;
-    border: 1px solid #ededf0;
-    border-radius: 3px;
-    display: inline-block;
-    height: auto;
-    line-height: 1.428571429;
-    max-width: 100%;
-    moz-transition: all .2s ease-in-out;
-    o-transition: all .2s ease-in-out;
-    padding: 2px;
-    transition: all .2s ease-in-out;
-    webkit-transition: all .2s ease-in-out;
-  }
-
-  .img-circle {
-    border-radius: 50%;
-  }
-
   .timeline-centered {
     position: relative;
     margin-bottom: 30px;
@@ -203,7 +174,7 @@
   .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label {
     margin-top: 0;
     position: relative;
-    padding: 1em;
+    border: 1px solid $primary-color;
     margin-left: 60px;
     -webkit-background-clip: padding-box;
     -moz-background-clip: padding;
@@ -225,7 +196,7 @@
     height: 0;
     border-style: solid;
     border-width: 9px 9px 9px 0;
-    border-color: transparent #fff transparent transparent;
+    border-color: transparent $primary-color transparent transparent;
     left: 0;
     top: 10px;
     margin-left: -9px;
@@ -239,34 +210,23 @@
     color: $primary-color;
   }
 
-  .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label p.teaser {
-    color: #737881;
-    font-size: 15px;
-    margin: 0;
-    line-height: 1.428571429;
-    border-top: 1px solid #dedede;
-    padding-top: 10px;
-  }
+  .card-content {
+    a {
+      .card-title {
+        font-weight: 400;
+        line-height: 25px;
+      }
 
-  .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label p + p {
-    margin-top: 15px;
-  }
+      &:hover {
+        color: $primary-color !important;
+      }
+    }
 
-  .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label h2 {
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-
-  .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label h2 a {
-    color: #303641;
-  }
-
-  .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label h2 span {
-    -webkit-opacity: .6;
-    -moz-opacity: .6;
-    opacity: .6;
-    -ms-filter: alpha(opacity=60);
-    filter: alpha(opacity=60);
+    p.teaser {
+      margin-top: 15px;
+      color: #737881;
+      line-height: 1.428571429;
+    }
   }
 }
 
@@ -304,6 +264,6 @@
   }
 
   .article-nav {
-    margin-top: 30px;
+    height: 56px;
   }
 }

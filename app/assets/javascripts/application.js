@@ -17,7 +17,9 @@
 //= require_tree .
 
 $(document).on('turbolinks:load', function() {
-  $('#category-nav').pushpin({
-    top: $('#category-nav').offset().top
+  $('#nav-category').pushpin({
+    top: $('#nav-category').offset().top
   });
+
+  $('.tooltipped').tooltip({delay: 50});
 });
