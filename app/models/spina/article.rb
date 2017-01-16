@@ -3,6 +3,7 @@ module Spina
     attr_accessor :old_materialized_path
 
     belongs_to :photo
+    has_and_belongs_to_many :categories, join_table: :articles_categories
 
     validates :title, :body, :author, :publish_date, presence: true
     validates :slug, uniqueness: true

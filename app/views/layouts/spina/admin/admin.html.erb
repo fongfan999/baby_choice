@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="<%= I18n.locale %>">
+  <head>
+    <meta charset="utf-8"/>
+    <meta content="initial-scale=1.0, user-scalable=no" name="viewport"/>
+    <%= csrf_meta_tags %>
+    <title>Spina</title>
+    <!-- Stylesheet
+    -->
+    <%= stylesheet_link_tag 'spina/admin/application', data: {turbolinks_track: true} %>
+    <!--[if lt IE 9]
+      <%= javascript_include_tag '//html5shiv.googlecode.com/svn/trunk/html5.js', data: {turbolinks_track: true} %>
+    -->
+    <!-- JavaScript
+    -->
+    <%= javascript_include_tag 'spina/admin/application', data: {turbolinks_track: true} %>
+    <%= yield(:plugin_stylesheets) %>
+  </head>
+  <body>
+    <%= render 'spina/admin/shared/primary_navigation' %>
+    <section id="main">
+      <%= yield(:permanent_notice) %>
+      <%= render 'spina/admin/shared/notifications' %>
+      <%= content_for?(:application) ? yield(:application) : yield %>
+    </section>
+  </body>
+</html>

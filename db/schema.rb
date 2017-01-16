@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170108022706) do
+ActiveRecord::Schema.define(version: 20170115123428) do
+
+  create_table "articles_categories", id: false, force: :cascade do |t|
+    t.integer "article_id",  null: false
+    t.integer "category_id", null: false
+    t.index ["article_id", "category_id"], name: "index_articles_categories_on_article_id_and_category_id"
+    t.index ["category_id", "article_id"], name: "index_articles_categories_on_category_id_and_article_id"
+  end
 
   create_table "spina_accounts", force: :cascade do |t|
     t.string   "name"
@@ -55,6 +62,10 @@ ActiveRecord::Schema.define(version: 20170108022706) do
     t.string   "file"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "spina_categories", force: :cascade do |t|
+    t.string "name"
   end
 
   create_table "spina_colors", force: :cascade do |t|
