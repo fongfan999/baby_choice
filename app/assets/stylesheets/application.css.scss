@@ -6,6 +6,10 @@
   background-color: #fff;
 }
 
+.primary {
+  background-color: $primary-color;
+}
+
 body {
   background-color: #f1f1f1;
 }
@@ -17,6 +21,7 @@ body {
   font-size: 2.1rem;
   padding: 0;
   white-space: nowrap;
+  margin-left: 10px;
 }
 
 #nav-search {
@@ -24,10 +29,24 @@ body {
 }
 
 #nav-category {
-  z-index: 2;
+  z-index: 1000;
+  overflow: hidden;
+
+  &.pin-top .navbar-brand {
+    display: none;
+  }
 
   &.pinned ~ main {
     padding-top: 64px;
+  }
+
+  .current-category {
+    font-size: 18px;
+    margin-left: 64px;
+  }
+
+  .button-collapse-always {
+    width: 64px;
   }
 }
 

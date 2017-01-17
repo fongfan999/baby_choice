@@ -15,7 +15,9 @@
   <body>
     <nav>
       <div class="nav-wrapper">
-        <%= link_to "Logo", root_path, class: "navbar-brand" %>
+        <%= link_to root_path, class: "navbar-brand" do %>
+          <%= image_tag "logo.png" %>
+        <% end %>
 
         <form id="nav-search" class="right hide-on-small-only">
           <div class="input-field">
@@ -48,15 +50,54 @@
       <br>
       <br>
     </div>
-
+  
     <nav id="nav-category">
       <div class="nav-wrapper">
-        <ul id="nav-mobile" class="hide-on-small-only">
-          <li>
-            <%= link_to "Home", root_path %>
+        <%= link_to root_path, class: "navbar-brand" do %>
+          <%= image_tag "logo.png" %>
+        <% end %>
+        
+        <div class="center ">
+          <a href="#" class="current-category">
+            <% if content_for?(:current_category) %>
+                <%= yield(:current_category) %>
+            <% else %>
+              Trang chủ
+            <% end %>
+          </a>
+          
+          <!-- Button collapse -->
+          <a href="#" data-activates="mobile-category" class="right button-collapse-always">
+            <i class="material-icons">more_horiz</i>
+          </a>
+
+          <ul class="right hide-on-med-and-down">
+            <li class="<%= 'active' if current_page?('/') %>">
+              <%= link_to "Trang chủ", root_path %>
+            </li>
+            <% Spina::Category.live.each do |category| %>
+              <li class="<%= 'active' if current_page?(category.to_uri) %>">
+                <%= link_to category.name, category %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+
+        <ul class="side-nav" id="mobile-category">
+          <li><div class="userView">
+            <div class="background primary"></div>
+            <a href="#!user"><img class="circle" alt="logo"></a>
+            <a href="#!name"><span class="white-text name">Lựa chọn tốt cho bé</span></a>
+            <a href="#!email"><span class="white-text email">Trang review các sản phẩm cho mẹ và bé lớn nhất Việt Nam</span></a>
+          </div></li>
+
+          <li class="<%= 'active' if current_page?('/') %>">
+            <%= link_to "Trang chủ", root_path %>
           </li>
-          <% Spina::Category.all.each do |category| %>
-            <li><%= link_to category.name, "#" %></li>
+          <% Spina::Category.live.each do |category| %>
+            <li class="<%= 'active' if current_page?(category.to_uri) %>">
+              <%= link_to category.name, category %>
+            </li>
           <% end %>
         </ul>
       </div>

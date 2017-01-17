@@ -22,4 +22,8 @@ $(document).on('turbolinks:load', function() {
   });
 
   $('.tooltipped').tooltip({delay: 50});
+
+  $('.button-collapse-always').sideNav({
+    edge: 'right'
+  });
 });

@@ -1,0 +1,39 @@
+<% content_for(:permanent_notice) do %>
+  <% unless current_account.robots_allowed? %>
+    <div class="permanent-notice permanent-notice-info">
+      <%= icon('search') %>
+      <p>
+        <%= t 'spina.pages.invisible_to_search_engines' %>
+        <small>
+          <%= t 'spina.pages.invisible_to_search_engines_description' %>
+        </small>
+      </p>
+    </div>
+  <% end %>
+<% end %>
+<header id="header">
+  <div class="breadcrumbs">
+    <%= render_breadcrumbs seperator: '<div class="divider"></div>' %>
+  </div>
+  <div id="header_actions">
+    <span>
+      <%= link_to spina.new_admin_category_path, class: 'button button-primary' do %>
+        <%= icon('plus') %>
+        <%= t('spina.categories.new', scaffold_name: t('spina.categories.scaffold_name')) %>
+      <% end %>
+    </span>
+  </div>
+</header>
+<div class="well">
+  <% if @categories.any? %>
+    <div class="dd" id="pages_list">
+      <ol class="dd-list">
+        <%= render partial: 'category', collection: @categories %>
+      </ol>
+    </div>
+  <% else %>
+    <em>
+      <%= t('spina.categories.empty', scaffold_name: t('spina.categories.scaffold_name_plural')) %>
+    </em>
+  <% end %>
+</div>

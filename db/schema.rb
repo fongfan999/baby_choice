@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170115123428) do
+ActiveRecord::Schema.define(version: 20170117030331) do
 
   create_table "articles_categories", id: false, force: :cascade do |t|
     t.integer "article_id",  null: false
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20170115123428) do
 
   create_table "spina_categories", force: :cascade do |t|
     t.string "name"
+    t.string "slug"
   end
 
   create_table "spina_colors", force: :cascade do |t|

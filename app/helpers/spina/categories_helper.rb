@@ -1,0 +1,2 @@
+module Spina::CategoriesHelper
+end

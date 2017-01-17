@@ -16,8 +16,6 @@ module Spina
         redirect_to root_path
         flash[:alert] = "Bài viết không tồn tại hoặc đã bị gỡ bỏ"
       end
-
-      
     end
   end
 end
