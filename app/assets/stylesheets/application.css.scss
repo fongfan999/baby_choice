@@ -1,6 +1,7 @@
 @import "variables";
 @import "materialize";
-@import "articles";
+@import "spina/articles";
+@import "responsive";
 
 .turbolinks-progress-bar {
   background-color: #fff;
@@ -25,7 +26,8 @@ body {
 }
 
 #nav-search {
-  width: 400px;
+  width: 100%;
+  max-width: 500px;
 }
 
 #nav-category {
@@ -42,7 +44,8 @@ body {
 
   .current-category {
     font-size: 18px;
-    margin-left: 64px;
+    margin-left: 37px;
+    text-transform: uppercase;
   }
 
   .button-collapse-always {

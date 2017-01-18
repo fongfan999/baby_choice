@@ -19,7 +19,7 @@
           <%= image_tag "logo.png" %>
         <% end %>
 
-        <form id="nav-search" class="right hide-on-small-only">
+        <form id="nav-search" class="right hide">
           <div class="input-field">
             <input id="search" type="search" placeholder="Search">
             <label for="search"><i class="material-icons">search</i></label>
@@ -27,10 +27,8 @@
           </div>
         </form>
         
-        <ul class="right hide-on-med-and-up">
-          <%= link_to root_path do %>
-            <i class="material-icons">search</i>
-          <% end %>
+        <ul class="right">
+          <a href="#" id="icon-search"><i class="material-icons">search</i></a>
         </ul>
         </div>
       </div>
@@ -59,10 +57,11 @@
         
         <div class="center ">
           <a href="#" class="current-category">
-            <% if content_for?(:current_category) %>
-                <%= yield(:current_category) %>
-            <% else %>
-              Trang chủ
+            <% if content_for?(:current_category_name) %>
+              <%= link_to yield(:current_category_name),
+                yield(:current_category_uri), class: "current-category"  %>
+            <% elsif current_page?("/") %>
+              <%= link_to "Trang chủ", root_path, class: "current-category" %>
             <% end %>
           </a>
           

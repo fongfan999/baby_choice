@@ -21,9 +21,25 @@ $(document).on('turbolinks:load', function() {
     top: $('#nav-category').offset().top
   });
 
-  $('.tooltipped').tooltip({delay: 50});
+  $('.tooltipped').tooltip({delay: 10});
 
   $('.button-collapse-always').sideNav({
     edge: 'right'
+  });
+
+
+  // Unfold search field
+  $("#icon-search").click(function(e) {
+    e.preventDefault();
+    $(this).toggleClass("hide");
+    
+    $('#nav-search').toggleClass("hide");
+    $('#search').focus();
+  })
+
+  // Fold search field
+  $('#search').blur(function() {
+    $('#nav-search').toggleClass("hide");
+    $("#icon-search").toggleClass("hide");
   });
 });
