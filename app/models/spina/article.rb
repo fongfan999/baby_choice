@@ -16,6 +16,8 @@ module Spina
     scope :newest_first, -> { live.order('publish_date DESC') }
     scope :most_visited, -> { live.order('views DESC').limit(5) }
 
+    self.per_page = 10
+
     def materialized_path
       "/articles/#{slug}"
     end

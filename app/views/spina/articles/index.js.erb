@@ -1,0 +1,9 @@
+$('.infinite-root').before("<%= j render(@articles) %>");
+$('.infinite-root .preloader').toggleClass('hide');
+
+<% if @articles.next_page %>
+  // Replace with new will_page
+  $('.will-paginate').html('<%= j will_paginate @articles %>');
+<% else %>
+  $('.will-paginate').remove();
+<% end %>

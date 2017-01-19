@@ -3,7 +3,12 @@ module Spina
     layout 'layouts/application'
 
     def index
-      @articles = Spina::Article.newest_first
+      @articles = Spina::Article.newest_first.page(params[:page])
+
+      respond_to do |format|
+        format.html
+        format.js
+      end
     end
 
     def show

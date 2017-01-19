@@ -1,14 +1,17 @@
 <div class="articles">  
   <div class="timeline-centered">
     <%= render @articles %>
-    <%= render @articles %>
-    <%= render @articles %>
-    <%= render @articles %>
-    <%= render @articles %>
-    <%= render @articles %>
-    <%= render @articles %>
-    <%= render @articles %>
-    <%= render @articles %>
+
+    <div class="infinite-root center-align">
+      <div class="preloader hide">
+        <%= render "shared/circle_preloader" %>        
+      </div>
+      
+      <div class="will-paginate hide">
+        <%= will_paginate @articles %>
+      </div>
+    </div>
+
     <article class="timeline-entry begin">
       <div class="timeline-entry-inner">
         <div class="timeline-icon">
