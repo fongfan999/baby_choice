@@ -17,16 +17,21 @@
 //= require_tree .
 
 $(document).on('turbolinks:load', function() {
+  // Pushpin category navbar
   $('#nav-category').pushpin({
     top: $('#nav-category').offset().top
   });
 
+  // Enable tooltip
   $('.tooltipped').tooltip({delay: 10});
 
+  // Enable side-nav
   $('.button-collapse-always').sideNav({
     edge: 'right'
   });
 
+  // Enable waves effect
+  Waves.displayEffect();
 
   // Unfold search field
   $("#icon-search").click(function(e) {

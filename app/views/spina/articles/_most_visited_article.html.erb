@@ -1,3 +1,4 @@
+<%= link_to article.materialized_path + "#nav-category" do %>
 <div class="card hoverable">
   <div class="card-image">
     <%= image_tag article.photo.file_url %>
@@ -6,3 +7,4 @@
     <h6><%= article.title %></h6>
   </div>
 </div>
+<% end %>

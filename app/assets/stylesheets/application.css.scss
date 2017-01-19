@@ -34,6 +34,10 @@ body {
   z-index: 1000;
   overflow: hidden;
 
+  div.center {
+    padding-left: 100px;
+  }
+
   &.pin-top .navbar-brand {
     display: none;
   }
@@ -60,15 +64,25 @@ main {
     .card-panel {
       margin-bottom: 0;
     }
-
-    .card {
-      .card-content {
-        padding: 10px 20px;
+    
+    a {
+      color: #212121;
+      
+      .card {
+        .card-content {
+          padding: 10px 20px;
+        }
       }
     }
   }
 
   #facebook-page {
+    .fb-page, 
+    .fb-page span, 
+    .fb-page span iframe[style] { 
+      width: 100% !important; 
+    }
+    
     .card-panel {
       margin-bottom: 0;
     }

@@ -5,6 +5,19 @@
 }
 
 @media screen and (min-width: $break-small) {
+  .navbar-brand {
+    margin-top: 4px;
+  }
+}
+
+@media screen and (min-width: $break-medium) {
+  #most-visited, #facebook-page {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media screen and (min-width: $break-large) {
   .nav-wrapper, main {
     margin: 0 auto;
     max-width: 1200px;
