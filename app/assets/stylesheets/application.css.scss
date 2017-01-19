@@ -56,12 +56,6 @@ body {
 main {
   margin-top: 15px;
 
-  .side-nav .userView .name {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-    font-weight: 600;
-  }
-
   #most-visited {
     .card-panel {
       margin-bottom: 0;
@@ -81,10 +75,34 @@ main {
   }
 }
 
+.side-nav .userView .name {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
 .toast-notice {
   background-color: #43a047;
 }
 
 .toast-alert {
   background-color: #e53935;
+}
+
+footer.page-footer {
+  padding-top: 0;
+
+  .footer-wrapper {
+    background-color: $primary-color;
+    color: #fff;
+    line-height: 50px;
+  
+    .row {
+      margin-bottom: 0;
+    }
+    
+    a.right {
+      margin-left: 10px;
+    }
+  }
 }
