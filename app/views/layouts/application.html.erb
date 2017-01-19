@@ -13,6 +13,8 @@
   </head>
 
   <body>
+    <div id="fb-root"></div>
+    
     <nav>
       <div class="nav-wrapper">
         <%= link_to root_path, class: "navbar-brand" do %>
@@ -76,7 +78,8 @@
             </li>
             <% Spina::Category.live.each do |category| %>
               <li class="<%= 'active' if current_page?(category.to_uri) %>">
-                <%= link_to category.name, category %>
+                <%= link_to category.name,
+                  category_path(category, anchor: "nav-category") %>
               </li>
             <% end %>
           </ul>
@@ -85,7 +88,7 @@
         <ul class="side-nav" id="mobile-category">
           <li><div class="userView">
             <div class="background primary"></div>
-            <a href="#!user"><img class="circle" alt="logo"></a>
+            <a href="#!user"><%= image_tag "logo.png", class: "circle" %></a>
             <a href="#!name"><span class="white-text name">Lựa chọn tốt cho bé</span></a>
             <a href="#!email"><span class="white-text email">Trang review các sản phẩm cho mẹ và bé lớn nhất Việt Nam</span></a>
           </div></li>
@@ -95,7 +98,8 @@
           </li>
           <% Spina::Category.live.each do |category| %>
             <li class="<%= 'active' if current_page?(category.to_uri) %>">
-              <%= link_to category.name, category %>
+              <%= link_to category.name,
+                category_path(category, anchor: "nav-category") %>
             </li>
           <% end %>
         </ul>
@@ -112,10 +116,20 @@
     <main class="row">
       <div class="col s12 m12 l9"><%= yield %></div>
 
-      <div class="col s12 m12S l3 card">
-        <h3>New things will be come here soon.</h3>
-      </div>
+      <div class="col s12 m12 l3">
+        <div id="most-visited" class="col s12 m6 l12">
+          <div class="card-panel primary white-text"><i class="material-icons left">trending_up</i> Được quan tâm nhất</div>
+          <%= render partial: "spina/articles/most_visited_article",
+            collection: Spina::Article.most_visited, as: :article %>
+        </div>
+
+        <div id="facebook-page" class="col s12 m6 l12">
+          <div class="card-panel primary white-text"><i class="material-icons left">public</i> Kết nối với chúng tôi</div>
+          <div class="center-align">
+            <div class="fb-page" data-href="https://www.facebook.com/luachontotchobe/" data-tabs="timeline" data-width="500" data-height="500" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/luachontotchobe/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/luachontotchobe/">Lựa chọn tốt cho bé - Review</a></blockquote></div>
+          </div>
+        </div>
+      </div>  
     </main>
-    
   </body>
 </html>

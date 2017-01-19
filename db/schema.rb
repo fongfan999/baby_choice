@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170117030331) do
+ActiveRecord::Schema.define(version: 20170119034633) do
 
   create_table "articles_categories", id: false, force: :cascade do |t|
     t.integer "article_id",  null: false
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20170117030331) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "photo_id"
+    t.integer  "views",        default: 0
   end
 
   create_table "spina_attachment_collections", force: :cascade do |t|

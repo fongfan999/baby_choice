@@ -1,5 +1,4 @@
 $(document).on 'turbolinks:load', ->
-  console.log "working"
   # Trix tool bar fixed top
   if $('#trix-wrapper').length > 0
     trixToolbarScrollTop = $('trix-toolbar').offset().top

@@ -3,13 +3,16 @@ module Spina
     layout 'layouts/application'
 
     def index
-      @articles = Spina::Article.live.newest_first
+      @articles = Spina::Article.newest_first
     end
 
     def show
       @article ||= Spina::Article.live.find_by(slug: params[:id])
 
       if @article
+        # Track visit
+        @article.increment!
+
         @prev_article = @article.prev_article
         @next_article = @article.next_article
       else

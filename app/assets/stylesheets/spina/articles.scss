@@ -1,4 +1,4 @@
-#articles {
+.articles {
   img {
     vertical-align: middle;
   }
@@ -227,6 +227,10 @@
       color: #737881;
       line-height: 1.428571429;
     }
+  }
+
+  .card-action {
+    padding: 10px 20px;
   }
 }
 

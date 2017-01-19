@@ -55,6 +55,30 @@ body {
 
 main {
   margin-top: 15px;
+
+  .side-nav .userView .name {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+
+  #most-visited {
+    .card-panel {
+      margin-bottom: 0;
+    }
+
+    .card {
+      .card-content {
+        padding: 10px 20px;
+      }
+    }
+  }
+
+  #facebook-page {
+    .card-panel {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .toast-notice {

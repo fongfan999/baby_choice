@@ -13,7 +13,8 @@ module Spina
       if: -> { old_materialized_path != materialized_path }
 
     scope :live, -> { where('publish_date <= ? AND draft = ?', Date.today, 0) }
-    scope :newest_first, -> { order('publish_date DESC') }
+    scope :newest_first, -> { live.order('publish_date DESC') }
+    scope :most_visited, -> { live.order('views DESC').limit(5) }
 
     def materialized_path
       "/articles/#{slug}"
@@ -21,6 +22,10 @@ module Spina
 
     def is_live?
       draft == 0
+    end
+
+    def increment!(by = 1)
+      self.update_columns(views: views + by)
     end
 
     def next_article

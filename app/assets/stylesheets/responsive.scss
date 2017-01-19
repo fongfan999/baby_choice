@@ -4,6 +4,13 @@
   }
 }
 
+@media screen and (min-width: $break-small) {
+  .nav-wrapper, main {
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+}
+
 // @media #{$medium-and-up} {
 // }
 
