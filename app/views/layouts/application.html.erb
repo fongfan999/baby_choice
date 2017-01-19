@@ -73,11 +73,13 @@
           </a>
 
           <ul class="right hide-on-med-and-down">
-            <li class="waves-effect waves-light <%= 'active' if current_page?('/') %>">
+            <li class="waves-effect waves-light 
+              <%= 'active' if current_page?('/') %>">
               <%= link_to "Trang chủ", root_path %>
             </li>
             <% Spina::Category.live.each do |category| %>
-              <li class="waves-effect waves-light <%= 'active' if current_page?(category.to_uri) %>">
+              <li class="waves-effect waves-light 
+                <%= 'active' if current_page?(category.to_uri) %>">
                 <%= link_to category.name,
                   category_path(id: category.slug, anchor: "nav-category") %>
               </li>
@@ -85,7 +87,11 @@
           </ul>
         </div>
 
-        <ul class="side-nav" id="mobile-category">
+        
+      </div>
+    </nav>
+
+    <ul class="side-nav" id="mobile-category">
           <li><div class="userView">
             <div class="background primary"></div>
             <a href="#!user"><%= image_tag "logo.png", class: "circle" %></a>
@@ -103,8 +109,6 @@
             </li>
           <% end %>
         </ul>
-      </div>
-    </nav>
     
     <% flash.each do |key, message| %>
       <%= javascript_tag do %>
