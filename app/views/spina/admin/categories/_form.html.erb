@@ -11,6 +11,15 @@
     </div>
   <% end %>
 <% end %>
+
+<% if @category.errors.any? %>
+  <ul class="well">
+    <% @category.errors.full_messages.each do |message| %>
+      <li class="text-danger"><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_for [:admin, @category], multipart: true, html: { autocomplete: "off" } do |f| %>
   <header id="header">
     <div class="breadcrumbs">

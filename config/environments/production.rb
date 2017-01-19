@@ -84,6 +84,8 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  # Default host url
-  config.action_controller.default_url_options = { host: 'myproduction.com' }
+  # Set host url in production
+  config.action_controller.default_url_options = {
+    host: 'luachontotchobe.com'
+  }
 end

@@ -79,7 +79,7 @@
             <% Spina::Category.live.each do |category| %>
               <li class="<%= 'active' if current_page?(category.to_uri) %>">
                 <%= link_to category.name,
-                  category_path(category, anchor: "nav-category") %>
+                  category_path(id: category.slug, anchor: "nav-category") %>
               </li>
             <% end %>
           </ul>
@@ -99,7 +99,7 @@
           <% Spina::Category.live.each do |category| %>
             <li class="<%= 'active' if current_page?(category.to_uri) %>">
               <%= link_to category.name,
-                category_path(category, anchor: "nav-category") %>
+                category_path(id: category.slug, anchor: "nav-category") %>
             </li>
           <% end %>
         </ul>

@@ -1,12 +1,10 @@
 module Spina
   class Category < ApplicationRecord
+    validates :name, presence: true, uniqueness: { case_sensitive: false }
+
     has_and_belongs_to_many :articles, join_table: :articles_categories
 
     after_save :set_slug, if: :name_changed?
-
-    def to_param
-      slug
-    end
 
     def to_uri
       "/categories/#{slug}"
