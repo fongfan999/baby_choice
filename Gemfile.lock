@@ -1,4 +1,21 @@
 GIT
+  remote: git@github.com:amatsuda/kaminari.git
+  revision: ab49ccd2d5392a3a88465b852cb10637777d2bfa
+  specs:
+    kaminari (1.0.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.0.1)
+      kaminari-activerecord (= 1.0.1)
+      kaminari-core (= 1.0.1)
+    kaminari-actionview (1.0.1)
+      actionview
+      kaminari-core (= 1.0.1)
+    kaminari-activerecord (1.0.1)
+      activerecord
+      kaminari-core (= 1.0.1)
+    kaminari-core (1.0.1)
+
+GIT
   remote: https://github.com/DigitalReflow/spina-articles.git
   revision: d068580a89ab4ed7529a670d77016855e3589849
   specs:
@@ -288,9 +305,6 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (2.0.2)
-    kaminari (0.17.0)
-      actionpack (>= 3.0.0)
-      activesupport (>= 3.0.0)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -415,6 +429,7 @@ DEPENDENCIES
   globalize!
   jbuilder (~> 2.5)
   jquery-rails
+  kaminari!
   listen (~> 3.0.5)
   pg
   puma (~> 3.0)

@@ -1,6 +1,7 @@
 module Spina
   class CategoriesController < ApplicationController
     layout 'layouts/application'
+    helper :application
 
     def show
       @category ||= Spina::Category.find_by_slug(params[:id])

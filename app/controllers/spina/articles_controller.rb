@@ -1,6 +1,7 @@
 module Spina
   class ArticlesController < ApplicationController
     layout 'layouts/application'
+    helper :application
 
     def index
       @articles = Spina::Article.newest_first.page(params[:page])

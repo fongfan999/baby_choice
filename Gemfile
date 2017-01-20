@@ -39,6 +39,7 @@ gem 'globalize', github: 'globalize/globalize'
 gem 'spina-template', github: 'denkGroot/Spina-template'
 gem 'spina', github: 'denkGroot/Spina'
 gem 'spina-articles', github: 'DigitalReflow/spina-articles'
+gem 'kaminari', :git => 'git@github.com:amatsuda/kaminari.git' 
 
 source 'https://rails-assets.org' do
   # Materialize

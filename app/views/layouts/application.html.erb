@@ -2,7 +2,11 @@
 <html>
   <head>
     <title>
-      Lựa chọn tốt cho bé - Trang review các sản phẩm cho mẹ và bé lớn nhất Việt Nam
+      <% if content_for?(:title) %>
+        <%= yield(:title) %>
+      <% else %>
+        Lựa chọn tốt cho bé - Trang review các sản phẩm cho mẹ và bé lớn nhất Việt Nam
+      <% end %>
     </title>
 
     <%= favicon_link_tag %>
@@ -12,6 +16,13 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- Facebook preview link -->
+    <meta property="og:image" content="https://s19.postimg.org/sjrex6seb/luachontotchobe.png" />
+    <meta property="og:title" content="Lựa chọn tốt cho bé" />
+    <meta property="og:url" content="http://www.luachontotchobe.com/" />
+    <meta property="og:description" content="Lựa chọn tốt cho bé - Trang review các sản phẩm cho mẹ và bé lớn nhất Việt Nam" />
+    <!-- End Facebook preview link -->
   </head>
 
   <body>
@@ -60,14 +71,13 @@
         <% end %>
         
         <div class="center ">
-          <% if content_for?(:current_category_name) %>
-            <%= link_to yield(:current_category_name),
-              yield(:current_category_uri),
-              class: "current-category hide-on-small-only"  %>
-          <% elsif current_page?("/") %>
-            <%= link_to "Trang chủ", root_path,
-            class: "current-category hide-on-small-only" %>
-          <% end %>
+          <span class="current-category hide-on-small-only">
+            <% if content_for?(:current_category) %>
+              <%= yield(:current_category) %>
+            <% elsif current_page?("/") %>
+              Trang chủ
+            <% end %>
+          </span>
           
           <!-- Button collapse -->
           <a href="#" data-activates="mobile-category" class="right button-collapse-always">
@@ -88,31 +98,29 @@
             <% end %>
           </ul>
         </div>
-
-        
       </div>
     </nav>
 
     <ul class="side-nav" id="mobile-category">
-          <li><div class="userView">
-            <div class="background primary"></div>
-            <a href="#!user">
-              <%= image_tag "logo.png", class: "circle white" %>
-            </a>
-            <span class="white-text name">Lựa chọn tốt cho bé</span>
-            <span class="white-text email">Trang review các sản phẩm cho mẹ và bé lớn nhất Việt Nam</span>
-          </div></li>
+      <li><div class="userView">
+        <div class="background primary"></div>
+        <a href="#!user">
+          <%= image_tag "logo.png", class: "circle white" %>
+        </a>
+        <span class="white-text name">Lựa chọn tốt cho bé</span>
+        <span class="white-text email">Trang review các sản phẩm cho mẹ và bé lớn nhất Việt Nam</span>
+      </div></li>
 
-          <li class="<%= 'active' if current_page?('/') %>">
-            <%= link_to "Trang chủ", root_path %>
-          </li>
-          <% Spina::Category.live.each do |category| %>
-            <li class="<%= 'active' if current_page?(category.to_uri) %>">
-              <%= link_to category.name,
-                category_path(id: category.slug, anchor: "nav-category") %>
-            </li>
-          <% end %>
-        </ul>
+      <li class="<%= 'active' if current_page?('/') %>">
+        <%= link_to "Trang chủ", root_path %>
+      </li>
+      <% Spina::Category.live.each do |category| %>
+        <li class="<%= 'active' if current_page?(category.to_uri) %>">
+          <%= link_to category.name,
+            category_path(id: category.slug, anchor: "nav-category") %>
+        </li>
+      <% end %>
+    </ul>
     
     <% flash.each do |key, message| %>
       <%= javascript_tag do %>

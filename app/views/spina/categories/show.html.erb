@@ -1,5 +1,5 @@
-<%= content_for :current_category_name, @category.name %>
-<%= content_for :current_category_path, @category.to_uri %>
+<%= content_for :current_category, @category.name %>
+<%= title(@category.name) %>
 
 <div class="articles">  
   <div class="timeline-centered">
