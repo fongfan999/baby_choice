@@ -4,6 +4,8 @@
     <title>
       Lựa chọn tốt cho bé - Trang review các sản phẩm cho mẹ và bé lớn nhất Việt Nam
     </title>
+
+    <%= favicon_link_tag %>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
@@ -94,9 +96,11 @@
     <ul class="side-nav" id="mobile-category">
           <li><div class="userView">
             <div class="background primary"></div>
-            <a href="#!user"><%= image_tag "logo.png", class: "circle" %></a>
-            <a href="#!name"><span class="white-text name">Lựa chọn tốt cho bé</span></a>
-            <a href="#!email"><span class="white-text email">Trang review các sản phẩm cho mẹ và bé lớn nhất Việt Nam</span></a>
+            <a href="#!user">
+              <%= image_tag "logo.png", class: "circle white" %>
+            </a>
+            <span class="white-text name">Lựa chọn tốt cho bé</span>
+            <span class="white-text email">Trang review các sản phẩm cho mẹ và bé lớn nhất Việt Nam</span>
           </div></li>
 
           <li class="<%= 'active' if current_page?('/') %>">

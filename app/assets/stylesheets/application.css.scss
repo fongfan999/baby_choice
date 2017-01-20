@@ -23,6 +23,15 @@ body {
   padding: 0;
   white-space: nowrap;
   margin-left: 10px;
+  width: 56px;
+  height: 56px;
+  background-color: #fff;
+  @extend .circle;
+
+  img {
+    width: 56px;
+    height: 56px;
+  }
 }
 
 #nav-search {
