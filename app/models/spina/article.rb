@@ -19,14 +19,29 @@ module Spina
       if query.blank?
         newest_first
       else
-        where("slug LIKE ?", "%#{query.delete_tonal.split.join('-')}%").newest_first
+        # Get query as tring arrar
+        # Count appearance of frequency word
+        # Sort array by frequency
+        # Delete frequency number, get word only
+        query_as_array = query
+          .delete_tonal.split
+          .each_with_object(Hash.new(0)) { |e,h| h[e] += 1 }
+          .sort_by { |k, v| -v }
+          .map(&:first)
+
+        results = search_by_slug(query_as_array.first)
+        query_as_array.drop(1).each do |word|
+          results = results.or( search_by_slug(word) )
+        end
+        
+        results
       end
     end
 
     self.per_page = 10
 
-    def self.search_by_link(keyword)
-      where("title LIKE ?", "%#{keyword}%")
+    def self.search_by_slug(query)
+      where("slug LIKE ?", "%#{query}%")
     end
 
     def materialized_path
