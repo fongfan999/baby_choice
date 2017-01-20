@@ -8,6 +8,12 @@
   .navbar-brand {
     margin-top: 4px;
   }
+
+  #nav-category {
+    div.center {
+      padding-left: 64px;
+    }
+  }
 }
 
 @media screen and (min-width: $break-medium) {

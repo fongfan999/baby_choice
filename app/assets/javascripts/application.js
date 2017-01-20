@@ -18,8 +18,8 @@
 
 $(document).on('turbolinks:load', function() {
   // Pushpin category navbar
-  $('#nav-category').pushpin({
-    top: $('#nav-category').offset().top
+  $('#nav-category-root').pushpin({
+    top: $('#nav-category-root').offset().top
   });
 
   // Enable tooltip
@@ -36,15 +36,21 @@ $(document).on('turbolinks:load', function() {
   // Unfold search field
   $("#icon-search").click(function(e) {
     e.preventDefault();
-    $(this).toggleClass("hide");
+    $(this).toggleClass('hide');
     
-    $('#nav-search').toggleClass("hide");
-    $('#search').focus();
+    $('#nav-search').toggleClass('hide');
+    $('#q').focus();
   })
 
   // Fold search field
-  $('#search').blur(function() {
-    $('#nav-search').toggleClass("hide");
-    $("#icon-search").toggleClass("hide");
+  $('#q').blur(function() {
+    $('#nav-search').toggleClass('hide');
+    $("#icon-search").toggleClass('hide');
   });
+
+  // Go to top
+  $(".go-to-top").click(function(event){
+    event.preventDefault();
+    $("body").animate({"scrollTop": "0px"}, 500);
+  })
 });

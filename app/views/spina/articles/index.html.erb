@@ -1,23 +1,41 @@
-<div class="articles">  
-  <div class="timeline-centered">
-    <%= render @articles %>
+<% if params[:q] %>
+  <div id="search-results">
+    <%= form_tag root_path(anchor: "nav-category"), method: :get,
+      class: "search-as-text" do %>
 
-    <div class="infinite-root center-align">
-      <div class="preloader hide">
-        <%= render "shared/circle_preloader" %>        
+      <div class="input-field">
+        <i class="material-icons prefix">search</i>
+        <%= text_field_tag :q, params[:q], autocomplete: "off" %>
+        <%= label_tag :q, "Nhập từ khoá" %>
       </div>
-      
-      <div class="will-paginate hide">
-        <%= will_paginate @articles %>
-      </div>
-    </div>
+    <% end %>
+    
+    <div class="divider"></div>
+    <%= render partial: "spina/articles/most_visited_article",
+      collection: @articles, as: :article %>
+  </div>
+<% else %>
+  <div class="articles">  
+    <div class="timeline-centered">
+      <%= render @articles %>
 
-    <article class="timeline-entry begin">
-      <div class="timeline-entry-inner">
-        <div class="timeline-icon">
-            <i class="entypo-flight"></i> +
+      <div class="infinite-root center-align">
+        <div class="preloader hide">
+          <%= render "shared/circle_preloader" %>        
+        </div>
+        
+        <div class="will-paginate hide">
+          <%= will_paginate @articles %>
         </div>
       </div>
-    </article>
+
+      <article class="timeline-entry begin">
+        <div class="timeline-entry-inner">
+          <div class="timeline-icon">
+              <i class="entypo-flight"></i> +
+          </div>
+        </div>
+      </article>
+    </div>
   </div>
-</div>
+<% end %>

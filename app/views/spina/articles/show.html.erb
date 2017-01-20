@@ -23,7 +23,7 @@
   <div class="article-nav">
     <div class="prev-article left">
       <% if @prev_article %>
-        <%= link_to @prev_article.materialized_path,
+        <%= link_to @prev_article.materialized_path + "#nav-category",
           class: "btn-floating white tooltipped waves-effect waves-red",
           data: { position: "right", tooltip: @prev_article.title } do %>
           <i class="material-icons black-text">arrow_back</i>
@@ -33,7 +33,7 @@
 
     <div class="next-article right">
       <% if @next_article %>
-        <%= link_to @next_article.materialized_path,
+        <%= link_to @next_article.materialized_path + "#nav-category",
           class: "btn-floating white tooltipped waves-effect waves-red",
           data: { position: "left", tooltip: @next_article.title } do %>
             <i class="material-icons black-text">arrow_forward</i>

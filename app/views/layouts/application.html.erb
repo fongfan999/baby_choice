@@ -5,7 +5,7 @@
       <% if content_for?(:title) %>
         <%= yield(:title) %>
       <% else %>
-        Lựa chọn tốt cho bé - Trang review các sản phẩm cho mẹ và bé lớn nhất Việt Nam
+        Lựa chọn tốt cho bé - Trang review các sản phẩm cho mẹ và bé hàng đầu Việt Nam
       <% end %>
     </title>
 
@@ -21,7 +21,7 @@
     <meta property="og:image" content="https://s19.postimg.org/sjrex6seb/luachontotchobe.png" />
     <meta property="og:title" content="Lựa chọn tốt cho bé" />
     <meta property="og:url" content="http://www.luachontotchobe.com/" />
-    <meta property="og:description" content="Lựa chọn tốt cho bé - Trang review các sản phẩm cho mẹ và bé lớn nhất Việt Nam" />
+    <meta property="og:description" content="Lựa chọn tốt cho bé - Trang review các sản phẩm cho mẹ và bé hàng đầu Việt Nam" />
     <!-- End Facebook preview link -->
   </head>
 
@@ -34,13 +34,14 @@
           <%= image_tag "logo.png" %>
         <% end %>
 
-        <form id="nav-search" class="right hide">
+        <%= form_tag root_path(anchor: "nav-category"), method: :get,
+          id: "nav-search", class: "right hide" do %>
           <div class="input-field">
-            <input id="search" type="search" placeholder="Search">
-            <label for="search"><i class="material-icons">search</i></label>
+            <%= search_field_tag :q, params[:q], placeholder: "Tìm kiếm" %>
+            <label for="q"><i class="material-icons">search</i></label>
             <i class="material-icons">close</i>
           </div>
-        </form>
+        <% end %>
         
         <ul class="right">
           <a href="#" id="icon-search"><i class="material-icons">search</i></a>
@@ -63,8 +64,10 @@
       <br>
       <br>
     </div>
-  
-    <nav id="nav-category">
+    
+    <!-- For anchor -->
+    <div id="nav-category"></div>
+    <nav id="nav-category-root">
       <div class="nav-wrapper">
         <%= link_to root_path, class: "navbar-brand" do %>
           <%= image_tag "logo.png" %>
@@ -104,9 +107,9 @@
     <ul class="side-nav" id="mobile-category">
       <li><div class="userView">
         <div class="background primary"></div>
-        <a href="#!user">
+        <%= link_to root_path do %>
           <%= image_tag "logo.png", class: "circle white" %>
-        </a>
+        <% end %>
         <span class="white-text name">Lựa chọn tốt cho bé</span>
         <span class="white-text email">Trang review các sản phẩm cho mẹ và bé lớn nhất Việt Nam</span>
       </div></li>
@@ -133,7 +136,8 @@
       <div class="col s12 m12 l9"><%= yield %></div>
 
       <div class="col s12 m12 l3">
-        <div id="most-visited" class="col s12 m6 l12">
+        <div id="most-visited" 
+          class="col s12 m6 l12 <%= 'hide' if params[:q] %>">
           <div class="card-panel primary white-text"><i class="material-icons left">trending_up</i> Được quan tâm nhất</div>
           <%= render partial: "spina/articles/most_visited_article",
             collection: Spina::Article.most_visited, as: :article %>
@@ -164,5 +168,11 @@
         </div>
       </div>
     </footer>
+
+    <div class="fixed-action-btn go-to-top">
+      <a class="btn-floating btn-large primary waves-effect waves-light">
+        <i class="large material-icons">arrow_upward</i>
+      </a>
+    </div>
   </body>
 </html>

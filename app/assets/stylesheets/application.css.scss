@@ -1,7 +1,7 @@
 @import "variables";
 @import "materialize";
 @import "spina/articles";
-@import "responsive";
+
 
 .turbolinks-progress-bar {
   background-color: #fff;
@@ -13,6 +13,9 @@
 
 body {
   background-color: #f1f1f1;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 .navbar-brand {
@@ -39,12 +42,12 @@ body {
   max-width: 500px;
 }
 
-#nav-category {
+#nav-category-root {
   z-index: 3;
   overflow: hidden;
 
   div.center {
-    padding-left: 100px;
+    padding-left: 56px;
   }
 
   &.pin-top .navbar-brand {
@@ -67,7 +70,9 @@ body {
 }
 
 main {
+  flex: 1 0 auto;
   margin-top: 15px;
+  width: 100%;
 
   #most-visited {
     .card-panel {
@@ -129,3 +134,6 @@ footer.page-footer {
     }
   }
 }
+
+// this file is intentionally imported
+@import "responsive";

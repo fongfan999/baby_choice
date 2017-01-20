@@ -15,8 +15,19 @@ module Spina
     scope :live, -> { where('publish_date <= ? AND draft = ?', Date.today, 0) }
     scope :newest_first, -> { live.order('publish_date DESC') }
     scope :most_visited, -> { live.order('views DESC').limit(5) }
+    scope :search, -> (query) do
+      if query.blank?
+        newest_first
+      else
+        where("slug LIKE ?", "%#{query.delete_tonal.split.join('-')}%").newest_first
+      end
+    end
 
     self.per_page = 10
+
+    def self.search_by_link(keyword)
+      where("title LIKE ?", "%#{keyword}%")
+    end
 
     def materialized_path
       "/articles/#{slug}"

@@ -275,3 +275,23 @@
     height: 56px;
   }
 }
+
+#search-results {
+  margin-top: 50px;
+
+
+  form {
+    max-width: 500px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+
+  & > a {
+    color: #212121;
+  }
+  .card {
+    max-width: 250px;
+    display: inline-block;
+    margin: 5px;
+  }
+}

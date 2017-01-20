@@ -4,7 +4,7 @@ module Spina
     helper :application
 
     def index
-      @articles = Spina::Article.newest_first.page(params[:page])
+      @articles = Spina::Article.search(params[:q]).page(params[:page])
 
       respond_to do |format|
         format.html
