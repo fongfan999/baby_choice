@@ -53,4 +53,12 @@ $(document).on('turbolinks:load', function() {
     event.preventDefault();
     $("body").animate({"scrollTop": "0px"}, 500);
   })
+
+  $(window).scroll(function() {
+    if ($(this).scrollTop() > 500) {
+      $('.go-to-top').show();
+    } else {
+      $('.go-to-top').fadeOut('slow');
+    }
+  });
 });

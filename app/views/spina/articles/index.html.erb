@@ -6,13 +6,29 @@
       <div class="input-field">
         <i class="material-icons prefix">search</i>
         <%= text_field_tag :q, params[:q], autocomplete: "off" %>
-        <%= label_tag :q, "Nhập từ khoá" %>
+        <%= label_tag :q, "Nhập từ khoá", class: "#{'active' if params[:q]}" %>
       </div>
     <% end %>
     
     <div class="divider"></div>
-    <%= render partial: "spina/articles/most_visited_article",
-      collection: @articles, as: :article %>
+
+    <% if @articles.any? %>
+      <%= render partial: "spina/articles/most_visited_article",
+        collection: @articles, as: :article %>
+
+      <div class="infinite-root center-align">
+        <div class="preloader hide">
+          <%= render "shared/circle_preloader" %>        
+        </div>
+        
+        <div class="will-paginate hide">
+          <%= will_paginate @articles %>
+        </div>
+      </div>
+    <% else %>
+      <h5 class="center-align">Không tìm thấy tin. Xin vui lòng thử lại từ khoá khác!</h5>
+    <% end %>
+    
   </div>
 <% else %>
   <div class="articles">  

@@ -29,8 +29,8 @@ module Spina
           .sort_by { |k, v| -v }
           .map(&:first)
 
-        results = search_by_slug(query_as_array.first)
-        query_as_array.drop(1).each do |word|
+        results = where("LOWER(body) LIKE ?", "%#{query.downcase}%")
+        query_as_array.each do |word|
           results = results.or( search_by_slug(word) )
         end
         
@@ -38,10 +38,11 @@ module Spina
       end
     end
 
-    self.per_page = 10
+    self.per_page = 20
 
     def self.search_by_slug(query)
-      where("slug LIKE ?", "%#{query}%")
+      # Match entire word
+      where("slug LIKE ? OR slug LIKE ?", "#{query}-%", "%-#{query}-%")
     end
 
     def materialized_path

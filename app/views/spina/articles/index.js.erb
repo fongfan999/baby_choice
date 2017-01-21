@@ -1,4 +1,9 @@
-$('.infinite-root').before("<%= j render(@articles) %>");
+<% if params[:q] %>
+  $('.infinite-root').before("<%= j render(partial: 'spina/articles/most_visited_article', collection: @articles, as: :article) %>");
+<% else %>
+  $('.infinite-root').before("<%= j render(@articles) %>");
+<% end %>
+
 $('.infinite-root .preloader').toggleClass('hide');
 
 <% if @articles.next_page %>
