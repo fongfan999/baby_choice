@@ -14,6 +14,10 @@
       padding-left: 64px;
     }
   }
+
+  #article .article-body iframe {
+    height: 400px;
+  }
 }
 
 @media screen and (min-width: $break-medium) {

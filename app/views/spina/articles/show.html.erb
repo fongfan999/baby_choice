@@ -17,7 +17,7 @@
   </div>
 
   <div class="article-body">
-    <%= @article.body.try(:html_safe) %>
+    <%= reverse_iframe_entities @article.body %>
   </div>
 
   <div class="article-nav">

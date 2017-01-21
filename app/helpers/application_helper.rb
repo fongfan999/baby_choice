@@ -14,4 +14,8 @@ module ApplicationHelper
       title    
     end
   end
+
+  def reverse_iframe_entities(text)
+    text.gsub("&lt;", "<").gsub("&gt;", ">").html_safe
+  end
 end

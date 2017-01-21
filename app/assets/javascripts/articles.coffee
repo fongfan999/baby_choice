@@ -1,2 +1,2 @@
 $(document).on 'turbolinks:load', ->
-  $('#article img').materialbox()
+  $('.article-body img').materialbox()
