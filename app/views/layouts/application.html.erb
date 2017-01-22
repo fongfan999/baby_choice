@@ -49,20 +49,37 @@
         </div>
       </div>
     </nav>
+    
+    <div id="banner" class="row">
+      <div id="slide-default"  class="carousel carousel-slider col s12 m8 l8"
+        data-indicators="true">
+        <div class="carousel-item"><img src="https://irb.rocks/content/images/2015/10/assignments-1.png"></div>
+        <div class="carousel-item"><img src="https://irb.rocks/content/images/2015/10/assignments-1.png"></div>
+        <div class="carousel-item"><img src="https://irb.rocks/content/images/2015/10/assignments-1.png"></div>
+        <div class="carousel-item"><img src="https://irb.rocks/content/images/2015/10/assignments-1.png"></div>
+      </div>
 
-    <div class="">
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <h1 class="center-align">Banner ...</h1>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
+      <div id="top-brands" class="col s12 m4 l4 hide-on-small-only">
+        <img src="http://d2436y6oj07al2.cloudfront.net/assets/gsblog/2016/11/Top-30-03.jpg" class="responsive-img" >
+      </div>
+
+      <div id="lastest-articles" class="col s12 m12 l12">
+        <div class="nav-slide-content">
+          <%= render partial: "spina/articles/second_article",
+          collection: Spina::Article.limit(5), as: :article %>
+          <%= render partial: "spina/articles/second_article",
+          collection: Spina::Article.limit(5), as: :article %>
+        </div>
+        
+        <div class="nav-slide-control">
+          <a href="#" class="nav-slide nav-prev valign-wrapper" data-nav="prev">
+            <i class="material-icons valign">navigate_before</i>
+          </a>
+          <a href="#" class="nav-slide nav-next valign-wrapper" data-nav="next">
+            <i class="material-icons valign">navigate_next</i>
+          </a>
+        </div>
+      </div>
     </div>
     
     <!-- For anchor -->
@@ -105,14 +122,20 @@
     </nav>
 
     <ul class="side-nav" id="mobile-category">
-      <li><div class="userView">
-        <div class="background primary"></div>
-        <%= link_to root_path do %>
-          <%= image_tag "logo.png", class: "circle white" %>
-        <% end %>
-        <span class="white-text name">Lựa chọn tốt cho bé</span>
-        <span class="white-text email">Trang review các sản phẩm cho mẹ và bé hàng đầu Việt Nam</span>
-      </div></li>
+      <li>
+        <div class="userView">
+          <div class="background primary"></div>
+          <%= link_to root_path do %>
+            <%= image_tag "logo.png", class: "circle white" %>
+          <% end %>
+          <span class="white-text name">Lựa chọn tốt cho bé</span>
+          <span class="white-text email">Trang review các sản phẩm cho mẹ và bé hàng đầu Việt Nam</span>
+
+          <a href="#" class="hide-side-nav">
+            <i class="material-icons white-text">close</i>
+          </a>
+        </div>
+      </li>
 
       <li class="<%= 'active' if current_page?('/') %>">
         <%= link_to "Trang chủ", root_path %>
@@ -124,7 +147,7 @@
         </li>
       <% end %>
     </ul>
-    
+
     <% flash.each do |key, message| %>
       <%= javascript_tag do %>
         Materialize
@@ -132,14 +155,14 @@
       <% end %>
     <% end %>
     
-    <main class="row">
+    <main class="row ">
       <div class="col s12 m12 l9"><%= yield %></div>
 
       <div class="col s12 m12 l3">
         <div id="most-visited" 
           class="col s12 m6 l12 <%= 'hide' if params[:q] %>">
           <div class="card-panel primary white-text"><i class="material-icons left">trending_up</i> Được quan tâm nhất</div>
-          <%= render partial: "spina/articles/most_visited_article",
+          <%= render partial: "spina/articles/second_article",
             collection: Spina::Article.most_visited, as: :article %>
         </div>
 
@@ -152,7 +175,7 @@
       </div>  
     </main>
 
-    <footer class="page-footer">
+    <footer class="page-footer hide">
       <div class="footer-wrapper">
         <div class="container row">
           <div class="col s12 m6 l6">

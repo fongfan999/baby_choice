@@ -29,6 +29,11 @@ $(document).on('turbolinks:load', function() {
   $('.button-collapse-always').sideNav({
     edge: 'right'
   });
+  // Hide side-nav
+  $('.hide-side-nav').click(function(e) {
+    e.preventDefault();
+    $('.button-collapse').sideNav('hide');
+  });
 
   // Enable waves effect
   Waves.displayEffect();
@@ -54,11 +59,38 @@ $(document).on('turbolinks:load', function() {
     $("body").animate({"scrollTop": "0px"}, 500);
   })
 
+  // Show go to top button when page height is greater than 1000
   $(window).scroll(function() {
-    if ($(this).scrollTop() > 500) {
+    if ($(this).scrollTop() > 1000) {
       $('.go-to-top').show();
     } else {
       $('.go-to-top').fadeOut('slow');
     }
   });
+
+  // Banner
+  // Initialize slider
+  $('.carousel.carousel-slider').carousel({full_width: true});
+  // Autoplay slide-fault
+  setInterval(function(){
+    $('#slide-default').carousel('next');
+  }, 7000);
+  // Responsive slider
+  $(window).resize(function() {
+    $('#slide-default').height($('#slide-default  .carousel-item').height() );
+  });
+
+  // Navigate slider on click
+  $('.nav-slide').click(function(e) {
+    var step = 300;
+    e.preventDefault();
+    lastestArticles = $('.nav-slide-content');
+    currentScrollLeft = lastestArticles.scrollLeft();
+
+    if ($(this).data('nav') === 'next') {
+      lastestArticles.animate({"scrollLeft": currentScrollLeft + step}, 500);
+    } else {
+      lastestArticles.animate({"scrollLeft": currentScrollLeft - step}, 500);
+    }
+  })
 });

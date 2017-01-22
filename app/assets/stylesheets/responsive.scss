@@ -25,12 +25,42 @@
     padding-left: 0;
     padding-right: 0;
   }
+
+  #banner #lastest-articles {
+    height: 258px;
+
+    .nav-slide-content {
+      a {
+        width: 240px;
+        display: inline-block;
+        margin-right: 10px;
+        height: 258px;
+
+        .card {
+          .card-content {
+            padding: 10px;
+            height: 85.5px;
+
+            h6 {
+              font-size: 1rem;
+              line-height: 110%;
+              margin: 0.5rem 0 0.4rem 0;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 @media screen and (min-width: $break-large) {
-  .nav-wrapper, main {
+  #nav-category-root, .nav-wrapper, #banner, main {
     margin: 0 auto;
     max-width: 1200px;
+  }
+
+  #nav-category-root.pinned {
+    max-width: 100%;
   }
 }
 

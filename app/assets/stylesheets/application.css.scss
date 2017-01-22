@@ -18,6 +18,12 @@ body {
   flex-direction: column;
 }
 
+nav .nav-wrapper {
+  ul.left {
+    margin-left: 76px;
+  }
+}
+
 .navbar-brand {
   position: absolute;
   color: #fff;
@@ -34,6 +40,87 @@ body {
   img {
     width: 56px;
     height: 56px;
+  }
+}
+
+#banner {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  margin-top: 5px !important;
+  
+  .col {
+    padding: 0;
+    margin: 0;
+  }
+
+  #slide-default .carousel-item {
+    min-height: 0;
+    height: auto;
+  }
+
+  #lastest-articles {
+    height: 172.5px;
+    position: relative;
+    margin-bottom: 5px;
+
+    .nav-slide-content {
+      width: calc(100% - 60px);
+      margin: 0 auto;
+      overflow: hidden;
+      white-space: nowrap;
+      
+
+      a {
+        width: 150px;
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 10px;
+        height: 172.5px;
+        color: #212121;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        .card {
+          margin: 0;
+
+          .card-content {
+            padding: 10px;
+            height: 60px;
+            white-space: normal;
+            
+            h6 {
+              font-size: 12px;
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+
+    a.nav-slide {
+      height: 100%;
+      width: 30px;
+      background-color: #000;
+      position: absolute;
+      opacity: 0.3;
+      top: 0;
+
+      &.nav-prev {
+        left: 0;
+      }
+
+      &.nav-next {
+        right: 0;
+      }
+
+      i {
+        color: #fff;
+        margin: 0 auto;
+      }
+    }
   }
 }
 
@@ -107,6 +194,12 @@ main {
   font-size: 1.3rem;
   margin-bottom: 10px;
   font-weight: 600;
+}
+
+a.hide-side-nav {
+  position: absolute;
+  top: 0;
+  right: 5px;
 }
 
 .toast-notice {
