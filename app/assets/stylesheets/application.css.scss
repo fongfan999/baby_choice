@@ -69,7 +69,6 @@ nav .nav-wrapper {
       margin: 0 auto;
       overflow: hidden;
       white-space: nowrap;
-      
 
       a {
         width: 150px;
@@ -85,6 +84,11 @@ nav .nav-wrapper {
 
         .card {
           margin: 0;
+
+          .card-image img {
+            width: 150px;
+            height: 112.5px;
+          }
 
           .card-content {
             padding: 10px;

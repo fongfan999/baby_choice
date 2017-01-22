@@ -37,6 +37,11 @@
         height: 258px;
 
         .card {
+          .card-image img {
+            width: 240px;
+            height: 180px;
+          }
+
           .card-content {
             padding: 10px;
             height: 85.5px;
