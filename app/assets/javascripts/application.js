@@ -17,11 +17,6 @@
 //= require_tree .
 
 $(document).on('turbolinks:load', function() {
-  // Pushpin category navbar
-  $('#nav-category-root').pushpin({
-    top: $('#nav-category-root').offset().top
-  });
-
   // Enable tooltip
   $('.tooltipped').tooltip({delay: 10});
 
@@ -70,11 +65,16 @@ $(document).on('turbolinks:load', function() {
 
   // Banner
   // Initialize slider
-  $('.carousel.carousel-slider').carousel({full_width: true});
+  $('.carousel.carousel-slider').slider().carousel({full_width: true});
   
   $(window).resize(function() {
     // Responsive slider
-    $('#slide-default').height( $('#slide-default  .carousel-item').height() );
+    $('#slide-default').height( $('#slide-default .carousel-item').height() );
+
+    // Pushpin category navbar
+    $('#nav-category-root').pushpin({
+      top: $('#nav-category').offset().top
+    });
   });
 
   // Navigate slider on click
@@ -90,6 +90,17 @@ $(document).on('turbolinks:load', function() {
       lastestArticles.animate({"scrollLeft": currentScrollLeft - step}, 500);
     }
   })
+
+  // Pushpin category navbar
+  $('#nav-category-root').pushpin({
+    top: $('#nav-category').offset().top
+  });
+});
+
+$(window).on('load', function() {
+  $('#nav-category-root').pushpin({
+    top: $('#nav-category').offset().top
+  });
 });
 
 $(function() {
