@@ -92,7 +92,9 @@ $(document).on('turbolinks:load', function() {
   })
 });
 
-// Autoplay slide-default
-setInterval(function(){
-  $('#slide-default').carousel('next');
-}, 7000);
+$(function() {
+  // Autoplay slide-default
+  setInterval(function(){
+    $('#slide-default').carousel('next');
+  }, 7000);
+});

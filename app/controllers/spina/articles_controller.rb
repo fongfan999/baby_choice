@@ -4,7 +4,7 @@ module Spina
     helper :application
 
     def search
-      @articles = Spina::Article.all.page(params[:page])
+      @articles = Spina::Article.search(params[:q]).page(params[:page])
     end
 
     def show

@@ -43,6 +43,45 @@
   </div>
 </div>
 
-<div class="comments">
-  <%= render "shared/facebook_comments", full_url: article_url(@article) %>
+<div class="action-bar card-panel">
+  <div class="info-bar right">
+  <div class="bar-block">
+    <i class="material-icons left">remove_red_eye</i> 
+    <span><%= @article.views %></span>
+  </div>
+  <div class="bar-block">
+    <i class="material-icons left">comment</i> 
+    <span class="fb-comments-count" 
+      data-href="<%= article_url(id: @article.slug) %>">0</span>
+  </div>
+  <div class="bar-block">
+    <i class="material-icons left">share</i> 
+    <span id="fb-share-count"><%= @article.views / 10 %></span>
+  </div>
+  </div>
+
+  <div class="fb-bar">
+    <div class="bar-block">
+      <div class="fb-like" data-href="<%= article_url(id: @article.slug) %>" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+    </div>
+  </div>
 </div>
+
+
+<div class="comments">
+  <%= render "shared/facebook_comments",
+    full_url: article_url(id: @article.slug) %>
+</div>
+
+<style>
+  .action-bar {
+    margin-top: -15px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .bar-block {
+    display: inline-block;
+    margin: 15px;
+  }
+</style>
