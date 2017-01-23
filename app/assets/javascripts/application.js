@@ -66,6 +66,8 @@ $(document).on('turbolinks:load', function() {
   // Banner
   // Initialize slider
   $('.carousel.carousel-slider').slider().carousel({full_width: true});
+  // Responsive slider
+  $('#slide-default').height( $('#slide-default .carousel-item').height() );
   
   $(window).resize(function() {
     // Responsive slider
