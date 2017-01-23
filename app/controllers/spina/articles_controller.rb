@@ -3,13 +3,8 @@ module Spina
     layout 'layouts/application'
     helper :application
 
-    def index
-      @articles = Spina::Article.search(params[:q]).page(params[:page])
-
-      respond_to do |format|
-        format.html
-        format.js
-      end
+    def search
+      @articles = Spina::Article.all.page(params[:page])
     end
 
     def show

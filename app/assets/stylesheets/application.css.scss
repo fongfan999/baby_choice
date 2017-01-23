@@ -1,7 +1,7 @@
 @import "variables";
 @import "materialize";
 @import "spina/articles";
-
+@import "spina/categories";
 
 .turbolinks-progress-bar {
   background-color: #fff;
@@ -9,6 +9,13 @@
 
 .primary {
   background-color: $primary-color;
+}
+
+.infinite-root {
+  @extend .col;
+  @extend .s12;
+  @extend .m12;
+  @extend .l12;
 }
 
 body {
@@ -43,6 +50,48 @@ nav .nav-wrapper {
   }
 }
 
+.sc-article-wrapper {
+  a.sc-article {
+    width: 150px;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 10px;
+    height: 172.5px;
+    color: #212121;
+    margin-bottom: 20px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    .card {
+      margin: 0;
+
+      .card-image img {
+        width: 150px;
+        height: 112.5px;
+      }
+
+      .card-content {
+        padding: 10px;
+        height: 60px;
+        white-space: normal;
+
+        h6 {
+          font-size: 12px;
+          margin: 0;
+        }
+      }
+    }
+
+    &:hover {
+      .card-content {
+        color: $primary-color;
+      }
+    }
+  }
+}
+
 #banner {
   position: relative;
   margin: 0 auto;
@@ -70,37 +119,8 @@ nav .nav-wrapper {
       overflow: hidden;
       white-space: nowrap;
 
-      a {
-        width: 150px;
-        display: inline-block;
-        vertical-align: top;
-        margin-right: 10px;
-        height: 172.5px;
-        color: #212121;
-
-        &:last-child {
-          margin-right: 0;
-        }
-
-        .card {
-          margin: 0;
-
-          .card-image img {
-            width: 150px;
-            height: 112.5px;
-          }
-
-          .card-content {
-            padding: 10px;
-            height: 60px;
-            white-space: normal;
-            
-            h6 {
-              font-size: 12px;
-              margin: 0;
-            }
-          }
-        }
+      .sc-article {
+        margin-bottom: 0;
       }
     }
 
@@ -165,19 +185,19 @@ main {
   margin-top: 15px;
   width: 100%;
 
+  & > .col.s12.m12.l9 {
+    padding: 0;
+  }
+
   #most-visited {
-    .card-panel {
-      margin-bottom: 0;
+    padding: 0;
+    
+    .col {
+      padding: 0;
     }
     
-    a {
-      color: #212121;
-      
-      .card {
-        .card-content {
-          padding: 10px 20px;
-        }
-      }
+    .card, .card-panel {
+      margin-bottom: 0;
     }
   }
 

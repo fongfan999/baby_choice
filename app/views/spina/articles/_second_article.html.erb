@@ -1,4 +1,4 @@
-<%= link_to article.materialized_path + "#nav-category" do %>
+<%= link_to article.materialized_path + "#nav-category", class: "sc-article" do %>
   <div class="card hoverable">
     <div class="card-image">
       <% if article.photo %>
@@ -6,7 +6,13 @@
       <% end %>
     </div>
     <div class="card-content">
-      <h6><%= highlight_title(article.title, params[:q]) %></h6>
+      <h6>
+        <% if local_assigns[:search] %>
+          <%= highlight_title(article.title, params[:q]) %>
+        <% else %>
+          <%= article.title %>          
+        <% end %>
+      </h6>
     </div>
   </div>
 <% end %>

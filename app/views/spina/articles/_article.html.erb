@@ -1,29 +1,16 @@
-<article class="timeline-entry">
-  <div class="timeline-entry-inner">
-    <div class="timeline-icon bg-info">
-      <i class="entypo-feather"></i>
+<div class="col <%= local_assigns[:class] %>">
+  <div class="card horizontal">
+    <div class="card-image valign-wrapper">
+      <%= image_tag article.photo.file_url, class: "valign" %>
     </div>
-
-    <div class="timeline-label card horizontal">   
-      <div class="card-image hide-on-small-only">
-        <% if article.photo %>
-          <%= image_tag article.photo.file_url %>
-        <% end %>
-      </div>
-
-      <div class="card-stacked">
-        <div class="card-content">
-          <%= link_to article.materialized_path + "#nav-category",
-            class: "black-text" do %>
-            <span class="card-title"><%= article.title %></span>
-          <% end %>
-          <p class="teaser"><%= article.teaser %></p>
-        </div>
-        <div class="card-action">
-          <%= link_to "Xem thêm",
-            article.materialized_path + "#nav-category", class: "right" %>
-        </div>
+    <div class="card-stacked">
+      <div class="card-content">
+        <h6><%= link_to article.title, article.materialized_path + "#nav-category" %></h6>
+        <div class="divider"></div>
+        <p><%= truncate(article.teaser, length: 50, omission: "") { 
+          link_to " ...", article.materialized_path + "#nav-category"
+        } %></p>
       </div>
     </div>
   </div>
-</article>
+</div>

@@ -34,7 +34,7 @@
           <%= image_tag "logo.png" %>
         <% end %>
 
-        <%= form_tag root_path(anchor: "nav-category"), method: :get,
+        <%= form_tag search_path(anchor: "nav-category"), method: :get,
           id: "nav-search", class: "right hide" do %>
           <div class="input-field">
             <%= search_field_tag :q, params[:q], placeholder: "Tìm kiếm" %>
@@ -64,7 +64,7 @@
       </div>
 
       <div id="lastest-articles" class="col s12 m12 l12">
-        <div class="nav-slide-content">
+        <div class="nav-slide-content sc-article-wrapper">
           <%= render partial: "spina/articles/second_article",
           collection: Spina::Article.limit(5), as: :article %>
           <%= render partial: "spina/articles/second_article",
@@ -155,27 +155,28 @@
       <% end %>
     <% end %>
     
-    <main class="row ">
+    <main class="row">
       <div class="col s12 m12 l9"><%= yield %></div>
 
-      <div class="col s12 m12 l3">
+      <div class="col s12 m12 l3 sidebar">
         <div id="most-visited" 
-          class="col s12 m6 l12 <%= 'hide' if params[:q] %>">
-          <div class="card-panel primary white-text"><i class="material-icons left">trending_up</i> Được quan tâm nhất</div>
-          <%= render partial: "spina/articles/second_article",
-            collection: Spina::Article.most_visited, as: :article %>
+          class="articles col s12 m12 l12">
+          <div class="card-panel primary white-text">
+            <i class="material-icons left">trending_up</i> Được quan tâm nhất
+          </div>
+          <%= render Spina::Article.most_visited, class: "s12 m6 l12" %>
         </div>
 
-        <div id="facebook-page" class="col s12 m6 l12">
+        <div id="facebook-page" class="col s12 m12 l12">
           <div class="card-panel primary white-text"><i class="material-icons left">public</i> Kết nối với chúng tôi</div>
           <div class="center-align">
-            <div class="fb-page" data-href="https://www.facebook.com/luachontotchobe/" data-tabs="timeline" data-width="500" data-height="500" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/luachontotchobe/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/luachontotchobe/">Lựa chọn tốt cho bé - Review</a></blockquote></div>
+            <div class="fb-page" data-href="https://www.facebook.com/luachontotchobe/" data-tabs="timeline" data-width="500" data-height="300" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/luachontotchobe/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/luachontotchobe/">Lựa chọn tốt cho bé - Review</a></blockquote></div>
           </div>
         </div>
       </div>  
     </main>
 
-    <footer class="page-footer hide">
+    <footer class="page-footer">
       <div class="footer-wrapper">
         <div class="container row">
           <div class="col s12 m6 l6">

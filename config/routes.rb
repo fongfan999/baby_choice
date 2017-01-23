@@ -7,7 +7,8 @@ Rails.application.routes.draw do
       resources :categories
     end
 
-    root "articles#index"
+    root "categories#index"
+    get "/search" => "articles#search"
     resources :articles, only: [:show]
     resources :categories, only: [:show]
   end

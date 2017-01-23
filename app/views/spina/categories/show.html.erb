@@ -1,26 +1,21 @@
 <%= content_for :current_category, @category.name %>
 <%= title(@category.name) %>
 
-<div class="articles">  
-  <div class="timeline-centered">
-    <%= render @articles %>
+<div class="articles row">
+  <div class="card-panel center-align primary white-text">
+    <i class="material-icons left white-text">bookmark</i>
+    <%= @category.name %>
+  </div>
 
-    <div class="infinite-root center-align">
-      <div class="preloader hide">
-        <%= render "shared/circle_preloader" %>        
-      </div>
-      
-      <div class="will-paginate hide">
-        <%= will_paginate @articles %>
-      </div>
+  <%= render @articles, class: "s12 m6 l6" %>
+
+  <div class="infinite-root center-align">
+    <div class="preloader hide">
+      <%= render "shared/circle_preloader" %>        
     </div>
 
-    <article class="timeline-entry begin">
-      <div class="timeline-entry-inner">
-        <div class="timeline-icon">
-            <i class="entypo-flight"></i> +
-        </div>
-      </div>
-    </article>
+    <div class="will-paginate hide">
+      <%= will_paginate @articles %>
+    </div>
   </div>
 </div>

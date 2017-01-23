@@ -1,4 +1,5 @@
-$('.infinite-root').before("<%= j render(@articles, class: 's12 m6 l6') %>");
+$('.infinite-root')
+.before("<%= j render( partial: 'spina/articles/second_article', collection: @articles, as: :article, locals: { search: true }) %>");
 $('.infinite-root .preloader').toggleClass('hide');
 
 <% if @articles.next_page %>

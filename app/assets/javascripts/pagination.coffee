@@ -4,6 +4,6 @@ $(document).on 'turbolinks:load', ->
     nextPageUrl = $('.pagination a.next_page').attr('href')
     scrollBottom = $(document).height() - $(window).height() - $(window).scrollTop()
     
-    if nextPageUrl && scrollBottom < 200
+    if nextPageUrl && scrollBottom < 800
       $('.infinite-root .preloader').toggleClass('hide')
       $.getScript nextPageUrl

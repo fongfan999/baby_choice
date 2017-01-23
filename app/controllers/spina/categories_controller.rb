@@ -3,11 +3,15 @@ module Spina
     layout 'layouts/application'
     helper :application
 
+    def index
+      @categories = Spina::Category.live
+    end
+
     def show
       @category ||= Spina::Category.find_by_slug(params[:id])
 
       if @category
-        @articles = @category.articles.live.page(params[:page])
+        @articles = @category.articles.live.newest_first.page(params[:page])
 
         respond_to do |format|
           format.html

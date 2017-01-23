@@ -1,0 +1,14 @@
+<div class="timeline__block">
+  <div class="timeline__midpoint"></div>
+  <div class="timeline__content">
+  <h5 class="timeline__year">
+    <%= link_to category.name, category_path(id: category.slug,
+      anchor: "nav-category") %>
+  </h5>
+    <div class="timeline__text sc-article-wrapper">
+      <%= render partial: "spina/articles/second_article",
+        collection: category.articles.live.newest_first.limit(10),
+        as: :article %>
+    </div>
+  </div>
+</div>

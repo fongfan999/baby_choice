@@ -1,3 +1,121 @@
-// Place all the styles related to the spina/categories controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#categories {
+  margin-top: -40px;
+
+  .timeline {
+    position: relative;
+    margin-top: 55px;
+    margin-left: 15px;
+    &:before {
+      /* vertical line*/
+      content: '';
+      position: absolute;
+      top: 10px;
+      /* to align with midline*/
+      left: 7px;
+      width: 2px;
+      height: 100%;
+      background-color: $primary-color;
+    }
+  }
+
+  .timeline__block {
+    position: relative;
+    padding-left: 15px;
+    &:last-child {
+      margin-bottom: 3em;
+    }
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  }
+
+  .timeline__midpoint {
+    position: absolute;
+    top: 6px;
+    left: -12px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ee6e73;
+    border: 4px solid #fff;
+    text-align: center;
+    line-height: 32px;
+    
+    &:after {
+      font-family: 'Material Icons';
+      content: "bookmark_border";
+      color: #fff;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 40px;
+      width: 30px;
+      border-top: 2px dashed $primary-color;
+    }
+  }
+
+  .timeline__content {
+    position: relative;
+    margin-left: 50px;
+    p + p {
+      padding-top: 0;
+    }
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  }
+
+  .timeline__midpoint--highlight > .timeline__year {
+    display: none;
+  }
+
+  .timeline__block__last {
+    .timeline__midpoint {
+      &:after {
+        font-family: 'Material Icons';
+        content: "radio_button_checked";
+        color: #fff;
+      }
+
+      &:before {
+        display: none;
+      }
+    }
+  }
+
+  /* timeline typography */
+  .timeline__content .timeline__year {
+    padding-top: 14px;
+    padding-left: 5px;
+    text-align: left;
+
+    a {
+      color: #212121;
+
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+
+  .timeline__midpoint--highlight .timeline__year {
+    color: #fff;
+    line-height: 4;
+  }
+
+  .timeline__year,
+  .timeline__midpoint--highlight + .timeline__content {
+    font-weight: 600;
+  }
+
+  .timeline__text {
+    margin-left: -30px;
+  }
+}
