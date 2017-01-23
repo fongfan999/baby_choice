@@ -68,9 +68,7 @@
       <div id="lastest-articles" class="col s12 m12 l12">
         <div class="nav-slide-content sc-article-wrapper">
           <%= render partial: "spina/articles/second_article",
-          collection: Spina::Article.limit(5), as: :article %>
-          <%= render partial: "spina/articles/second_article",
-          collection: Spina::Article.limit(5), as: :article %>
+          collection: Spina::Article.limit(10), as: :article %>
         </div>
         
         <div class="nav-slide-control">
