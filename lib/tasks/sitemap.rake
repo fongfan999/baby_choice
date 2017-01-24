@@ -7,11 +7,13 @@ namespace :sitemap do
     host = 'luachontotchobe.com'
     map = XmlSitemap::Map.new(host)
 
-    Spina::Article.newest_first.each do |article|
-      map.add "/articles/#{article.slug}", updated: article.updated_at,
-        period: :daily, priority: 0.8
+    Spina::Category.live.each do |category|
+      map.add "/categories/#{category.slug}", period: :daily, priority: 0.9
+    end
+    Spina::Article.newest_first.limit(3).each do |article|
+      map.add "/articles/#{article.slug}", period: :daily, priority: 0.8
     end
 
-    map.render_to Rails.root.join('public', 'sitemap.xml').to_s
+    map.render_to Rails.root.join('public', 'sitemap.xml')
   end
 end
