@@ -51,6 +51,8 @@ end
 gem 'fog', '~> 1.38'
 # Pagination
 gem 'will_paginate', '~> 3.1', '>= 3.1.5'
+# Sitemap
+gem 'xml-sitemap', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
