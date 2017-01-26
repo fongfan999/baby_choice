@@ -3,4 +3,4 @@
 # To ban all spiders from the entire site uncomment the next two lines:
 # User-agent: *
 # Disallow: /
-Sitemap: http://www.luachontotchobe.com/sitemap.xml.gz
+Sitemap: https://s3-ap-southeast-1.amazonaws.com/baby-choice/sitemaps/sitemap.xml.gz
